@@ -1,0 +1,39 @@
+schema-version = "1.13.0"
+
+[install]
+# Manage a local Ghost instance for development
+ghost-cli.pkg-path = "ghost-cli"
+
+# Dependencies for Ghost
+nodejs.pkg-path = "nodejs"
+pnpm.pkg-path = "pnpm"
+
+# Local development tools
+git.pkg-path = "git"
+git.outputs = "all"
+just.pkg-path = "just"
+just.outputs = "all"
+markdownlint-cli.pkg-path = "markdownlint-cli"
+parallel.pkg-path = "parallel"
+parallel.outputs = "all"
+pre-commit.pkg-path = "pre-commit"
+pre-commit.outputs = "all"
+prettier.pkg-path = "prettier"
+taplo.pkg-path = "taplo"
+yamllint.pkg-path = "yamllint"
+yamllint.outputs = "all"
+zizmor.pkg-path = "zizmor"
+
+[vars]
+
+[hook]
+
+[profile]
+
+[services]
+
+[include]
+
+[build]
+
+[options]

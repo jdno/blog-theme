@@ -6,13 +6,19 @@ on:
     branches:
       - main
 
-permissions:
-  contents: read
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
 
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
@@ -34,6 +40,10 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
     needs: test
 
     steps:

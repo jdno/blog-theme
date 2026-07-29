@@ -1,0 +1,14 @@
+---
+extends: default
+
+ignore: |
+  .flox/cache/*
+  node_modules/*
+  pnpm-lock.yaml
+
+rules:
+  comments:
+    min-spaces-from-content: 1
+  line-length:
+    ignore: |
+      .github/workflows/*
