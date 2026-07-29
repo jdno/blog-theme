@@ -12,8 +12,9 @@ pre-commit-checks:
     just format-toml true
     just lint-github-actions
     just lint-markdown
+    just lint-theme
+    just lint-toml
     just lint-yaml
-    just test
 
 # Format JSON files
 format-json fix="false": (prettier fix "{json,json5}")
@@ -36,6 +37,11 @@ lint-github-actions:
 lint-markdown:
     markdownlint **/*.md
 
+# Lint the Ghost theme using Ghost's gscan tool
+lint-theme:
+    pnpm zip
+    pnpm gscan {{ if env("GITHUB_ACTIONS", "") != "" { "--fatal --verbose" } else { "" } }} -z ghost-starter-theme.zip
+
 # Lint TOML files
 lint-toml:
     taplo check
@@ -51,8 +57,3 @@ pre-commit:
 # Auto-format files with prettier
 prettier fix="false" extension="*":
     prettier {{ if fix == "true" { "--write" } else { "--list-different" } }} --ignore-unknown "**/*.{{ extension }}"
-
-# Run the tests
-test:
-    pnpm zip
-    pnpm gscan {{ if env("GITHUB_ACTIONS", "") != "" { "--fatal --verbose" } else { "" } }} -z ghost-starter-theme.zip
