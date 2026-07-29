@@ -1,4 +1,5 @@
 # pnpm 11 requires each dependency build script to be explicitly approved.
 allowBuilds:
-  # Optional dtrace bindings for bunyan (a gscan dependency); not needed to build or test the theme.
+  # Optional dtrace bindings for bunyan (a gscan dependency);
+  # not needed to build or test the theme.
   dtrace-provider: false
