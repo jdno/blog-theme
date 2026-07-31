@@ -62,10 +62,10 @@
 .gh-canvas > ul,
 .gh-canvas > dl,
 .gh-canvas > p {
-    font-family: var(--font-serif);
+    font-family: var(--font-prose);
     font-weight: 400;
-    font-size: 2rem;
-    line-height: 1.6em;
+    font-size: 1.9rem;
+    line-height: 1.65em;
 }
 
 .gh-content > ul,
@@ -125,36 +125,36 @@
 figcaption {
     padding: 1.5rem 1.5rem 0;
     text-align: center;
-    color: rgba(0, 0, 0, 0.5);
+    color: var(--color-muted);
     font-weight: 600;
     font-size: 1.3rem;
     line-height: 1.4em;
 }
 
 figcaption strong {
-    color: rgba(0, 0, 0, 0.8);
+    color: var(--color-ink);
 }
 
 .gh-canvas :not(pre) code {
     vertical-align: middle;
     padding: 0.15em 0.4em 0.15em;
-    border: #e1eaef 1px solid;
+    border: 1px solid var(--color-hairline);
+    font-family: var(--font-mono);
     font-weight: 400 !important;
-    font-size: 0.9em;
+    font-size: 0.85em;
     line-height: 1em;
-    color: #dc0050;
-    background: #f0f6f9;
+    color: var(--color-accent);
+    background: var(--color-surface);
     border-radius: 0.25em;
 }
 
 .gh-canvas > pre {
-    overflow: scroll;
+    overflow: auto;
     padding: 16px 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 5px;
-    box-shadow:
-        0 2px 6px -2px rgba(0, 0, 0, 0.1),
-        0 0 1px rgba(0, 0, 0, 0.4);
+    font-family: var(--font-mono);
+    background: var(--color-surface);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius);
 }
 
 .kg-embed-card {
@@ -214,20 +214,20 @@ figcaption strong {
 }
 
 .gh-content tbody tr:nth-child(2n + 1) {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--color-surface);
     padding: 1px;
 }
 
 .gh-content tbody tr:nth-child(2n + 2) td:last-child {
     box-shadow:
-        inset 1px 0 rgba(0, 0, 0, 0.1),
-        inset -1px 0 rgba(0, 0, 0, 0.1);
+        inset 1px 0 var(--color-hairline),
+        inset -1px 0 var(--color-hairline);
 }
 
 .gh-content tbody tr:nth-child(2n + 2) td {
-    box-shadow: inset 1px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: inset 1px 0 var(--color-hairline);
 }
 
 .gh-content tbody tr:last-child {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--color-hairline);
 }

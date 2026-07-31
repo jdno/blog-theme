@@ -2,10 +2,42 @@
 <div class="gh-page">
     <div class="gh-container">
 
+        {{#is "home"}}
+            <section class="gh-profile">
+                {{#if @site.icon}}
+                    <img
+                        class="gh-profile-avatar"
+                        src="{{@site.icon}}"
+                        alt="{{@site.title}}"
+                    />
+                {{else}}
+                    <span class="gh-profile-monogram" aria-hidden="true">JD</span>
+                {{/if}}
+                <div class="gh-profile-info">
+                    <p class="gh-profile-bio">{{@site.description}}</p>
+                    <div class="gh-profile-links">
+                        {{#if @custom.github_url}}
+                            <a class="gh-pill" href="{{@custom.github_url}}" rel="me">GitHub</a>
+                        {{/if}}
+                        {{#if @custom.mastodon_url}}
+                            <a class="gh-pill" href="{{@custom.mastodon_url}}" rel="me">Mastodon</a>
+                        {{/if}}
+                        {{#if @custom.bluesky_url}}
+                            <a class="gh-pill" href="{{@custom.bluesky_url}}" rel="me">Bluesky</a>
+                        {{/if}}
+                        {{#if @custom.linkedin_url}}
+                            <a class="gh-pill" href="{{@custom.linkedin_url}}" rel="me">LinkedIn</a>
+                        {{/if}}
+                        <a class="gh-pill" href="{{@site.url}}/rss/">RSS</a>
+                    </div>
+                </div>
+            </section>
+        {{/is}}
+
         <div class="gh-postfeed">
         {{#foreach posts}}
 
-            {{> "card" page=../pagination.page }} {{!-- partials/card.hbs --}}
+            {{> "feed-row"}} {{!-- partials/feed-row.hbs --}}
 
         {{/foreach}}
         </div>

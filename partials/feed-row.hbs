@@ -1,0 +1,16 @@
+{{!--
+Text-only feed row for the post list: title, excerpt, and meta.
+The `post` class and `gh-postfeed` container are required by infiniteScroll.
+--}}
+
+<article class="gh-feed-row {{post_class}}">
+    <a class="gh-feed-link" href="{{url}}">
+        <h2 class="gh-feed-title">{{title}}</h2>
+        <p class="gh-feed-excerpt">{{excerpt words="30"}}</p>
+        <span class="gh-feed-meta">
+            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMM YYYY"}}</time>
+            <span class="bull">&bull;</span>
+            {{reading_time}}
+        </span>
+    </a>
+</article>

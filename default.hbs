@@ -3,6 +3,31 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {{! Apply the stored color scheme before first paint to avoid flashing }}
+        <script>
+            (function () {
+                var theme = localStorage.getItem("theme");
+                if (theme === "light" || theme === "dark") {
+                    document.documentElement.setAttribute("data-theme", theme);
+                }
+            })();
+        </script>
+
+        <link
+            rel="preload"
+            href="{{asset 'fonts/bricolage-grotesque-800.woff2'}}"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="{{asset 'fonts/figtree-400.woff2'}}"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
         <link rel="stylesheet" href="{{asset 'built/index.css'}}" />
         <script src="{{asset 'built/index.js'}}" defer></script>
 
@@ -12,10 +37,10 @@
         {{! Outputs important meta data and settings, should always be in <head> }}
 
     </head>
-    <body class="{{body_class}}">
+    <body class="{{body_class}}{{#match @custom.typography "Serif"}} has-serif-body{{/match}}">
         <div class="gh-viewport">
 
-            <header id="gh-head" class="gh-head">
+            <header id="gh-head" class="gh-head gh-head-brandnavactions">
                 <nav class="gh-head-inner gh-container">
 
                     <div class="gh-head-brand">
@@ -41,6 +66,13 @@
                     <div class="gh-head-actions">
                         <div class="gh-head-actions-list">
                             {{search}}
+                            <button
+                                class="gh-theme-toggle"
+                                aria-label="Toggle color scheme"
+                            >
+                                <span class="gh-theme-toggle-dark" aria-hidden="true">☾</span>
+                                <span class="gh-theme-toggle-light" aria-hidden="true">☀</span>
+                            </button>
                             {{#if @site.members_enabled}}
                                 {{#if @member}}
                                     <a
@@ -72,7 +104,7 @@
                         {{navigation type="secondary"}}
                     </div>
                     <div class="gh-foot-meta">
-                        Published with
+                        {{@site.title}} &copy; · Published with
                         <a
                             href="https://ghost.org"
                             target="_blank"

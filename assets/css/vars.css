@@ -1,25 +1,39 @@
-/* Variables
+/* Design tokens — Paper & Ember
 /* ---------------------------------------------------------- */
 
 :root {
-    /* Colours */
-    --color-primary: var(--ghost-accent-color, #3eb0ef);
-    --color-base: #131313;
-    --color-border: #ddd;
-    --color-bg: #f5f5f5;
-    --color-success: #80b912;
-    --color-error: #f05230;
+    /* Palette: light (paper) */
+    --color-paper: #f7f4ef;
+    --color-ink: #211d18;
+    --color-muted: #6e675d;
+    --color-hairline: #dfd8cc;
+    --color-surface: #efeae1;
+    --color-accent: var(--ghost-accent-color, #c9451b);
+    --color-success: #4f7f22;
+    --color-error: #b3261e;
+
+    /* Compatibility aliases for base components */
+    --color-primary: var(--color-accent);
+    --color-base: var(--color-ink);
+    --color-border: var(--color-hairline);
+    --color-bg: var(--color-surface);
 
     /* Fonts */
-    --font-sans-serif:
-        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
-    --font-serif: Georgia, Times, serif;
-    --font-mono: Menlo, Courier, monospace;
-    --font-light: 100;
+    --font-display:
+        "Bricolage Grotesque", "Avenir Next", "Helvetica Neue", sans-serif;
+    --font-body:
+        "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Helvetica Neue", sans-serif;
+    --font-serif-body: "Literata", Georgia, Times, serif;
+    --font-prose: var(--font-body);
+    --font-mono: Menlo, Consolas, Monaco, monospace;
+
+    /* Compatibility aliases for base components */
+    --font-sans-serif: var(--font-body);
+    --font-serif: var(--font-serif-body);
+    --font-light: 300;
     --font-normal: 400;
-    --font-bold: 700;
+    --font-bold: 600;
     --font-heavy: 800;
 
     /* Breakpoints */
@@ -32,5 +46,38 @@
     /* Sizes */
     --height: 4rem;
     --margin: 2rem;
-    --radius: 0.5rem;
+    --radius: 0.8rem;
+
+    /* The playful vocabulary */
+    --shadow-offset: 0.3rem 0.3rem 0 var(--color-accent);
+    --shadow-offset-lg: 0.4rem 0.4rem 0 var(--color-accent);
+}
+
+/* Palette: dark (charcoal). Applied when the toggle chose dark, or when
+   the system prefers dark and the toggle has not chosen light. */
+
+:root[data-theme="dark"] {
+    --color-paper: #211e19;
+    --color-ink: #eae5dc;
+    --color-muted: #9a9184;
+    --color-hairline: #3a352c;
+    --color-surface: #2a2620;
+    --color-accent: #e86a3c;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --color-paper: #211e19;
+        --color-ink: #eae5dc;
+        --color-muted: #9a9184;
+        --color-hairline: #3a352c;
+        --color-surface: #2a2620;
+        --color-accent: #e86a3c;
+    }
+}
+
+/* Prose font: sans by default, serif via the typography theme setting */
+
+.has-serif-body {
+    --font-prose: var(--font-serif-body);
 }

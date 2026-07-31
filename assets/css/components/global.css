@@ -16,13 +16,13 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    color: #464646;
-    font-family: var(--font-sans-serif);
-    font-size: 1.5rem;
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 1.6rem;
     line-height: 1.6em;
     font-weight: 400;
     font-style: normal;
-    background: #fff;
+    background: var(--color-paper);
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -90,11 +90,15 @@ hr {
 
 ::selection {
     text-shadow: none;
-    background: #cbeafb;
+    background: color-mix(in srgb, var(--color-accent) 25%, transparent);
 }
 
 mark {
-    background-color: #fdffb6;
+    color: inherit;
+    background: linear-gradient(
+        transparent 55%,
+        color-mix(in srgb, var(--color-accent) 35%, transparent) 55%
+    );
 }
 
 small {
@@ -120,8 +124,16 @@ ul:not([class]) li + li {
 }
 
 a:not([class]) {
-    color: var(--color-primary);
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 0.2rem;
+    text-underline-offset: 0.3rem;
     text-decoration-skip-ink: auto;
+}
+
+a:not([class]):hover {
+    text-decoration-thickness: 0.3rem;
 }
 
 a[class] {
@@ -142,7 +154,9 @@ h5,
 h6 {
     margin: 0;
     line-height: 1.15em;
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-weight: var(--font-heavy);
+    letter-spacing: -0.01em;
 }
 
 h1 {
