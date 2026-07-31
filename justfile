@@ -1,6 +1,9 @@
 # Run all recipes inside the Flox environment
 set shell := ["flox", "activate", "--", "sh", "-cu"]
 
+# Location of the theme in the local Ghost instance
+theme_dir := "ghost/content/themes/ghost-starter-theme"
+
 [private]
 default:
     @just --list
@@ -28,6 +31,20 @@ format-toml fix="false":
 
 # Format YAML files
 format-yaml fix="false": (prettier fix "{yaml,yml}")
+
+# Install a local Ghost instance into ghost/ for theme development
+ghost-install:
+    cd ghost && pnpm exec ghost install local --no-start
+    just theme-sync
+    @echo "Run 'just ghost-start', then open http://localhost:2368/ghost to create an admin user and activate the theme"
+
+# Start the local Ghost development server
+ghost-start: theme-sync
+    cd ghost && pnpm exec ghost start
+
+# Stop the local Ghost development server
+ghost-stop:
+    cd ghost && pnpm exec ghost stop
 
 # Lint GitHub Actions workflows
 lint-github-actions:
@@ -57,3 +74,10 @@ pre-commit:
 # Auto-format files with prettier
 prettier fix="false" extension="*":
     prettier {{ if fix == "true" { "--write" } else { "--list-different" } }} --ignore-unknown "**/*.{{ extension }}"
+
+# Build the theme and copy it into the local Ghost instance
+theme-sync:
+    pnpm build
+    rm -rf {{ theme_dir }}
+    mkdir -p {{ theme_dir }}
+    cp -R assets members partials *.hbs package.json {{ theme_dir }}/

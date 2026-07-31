@@ -1,3 +1,6 @@
+# Local Ghost installation for development
+ghost/
+
 b-cov
 *.seed
 *.log

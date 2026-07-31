@@ -3,3 +3,6 @@ allowBuilds:
   # Optional dtrace bindings for bunyan (a gscan dependency);
   # not needed to build or test the theme.
   dtrace-provider: false
+  # Bundled by ghost-cli to install Ghost; its preinstall script is an
+  # optional self-check that is not needed for it to work.
+  yarn: false
