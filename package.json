@@ -66,6 +66,33 @@
     "config": {
         "card_assets": true,
         "posts_per_page": 15,
+        "custom": {
+            "typography": {
+                "type": "select",
+                "options": [
+                    "Sans",
+                    "Serif"
+                ],
+                "default": "Sans",
+                "description": "Body font for post content"
+            },
+            "github_url": {
+                "type": "text",
+                "default": "https://github.com/jdno"
+            },
+            "mastodon_url": {
+                "type": "text",
+                "default": "https://hachyderm.io/@jdno"
+            },
+            "bluesky_url": {
+                "type": "text",
+                "default": "https://bsky.app/profile/jdno.dev"
+            },
+            "linkedin_url": {
+                "type": "text",
+                "default": "https://www.linkedin.com/in/jandavidnose"
+            }
+        },
         "image_sizes": {
             "xxs": {
                 "width": 30

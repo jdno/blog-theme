@@ -6,7 +6,9 @@ import "../css/index.css";
 // Import JS
 import menuOpen from "./menuOpen";
 import infiniteScroll from "./infiniteScroll";
+import themeToggle from "./themeToggle";
 
-// Call the menu and infinite scroll functions
+// Call the menu, infinite scroll, and theme toggle functions
 menuOpen();
 infiniteScroll();
+themeToggle();
