@@ -1,12 +1,12 @@
 schema-version = "1.13.0"
 
 [install]
-# Manage a local Ghost instance for development
-ghost-cli.pkg-path = "ghost-cli"
-
 # Dependencies for Ghost
-nodejs.pkg-path = "nodejs"
+nodejs_22.pkg-path = "nodejs_22"
+nodejs_22.version = "22.23.1"
 pnpm.pkg-path = "pnpm"
+python314.pkg-path = "python314"
+setuptools.pkg-path = "python314Packages.setuptools"
 
 # Local development tools
 git.pkg-path = "git"
@@ -27,8 +27,25 @@ zizmor.pkg-path = "zizmor"
 [vars]
 
 [hook]
+on-activate = '''
+  # Setup a Python virtual environment
+
+  export PYTHON_DIR="$FLOX_ENV_CACHE/python"
+  if [ ! -d "$PYTHON_DIR" ]; then
+    echo "Creating python virtual environment in $PYTHON_DIR"
+    python -m venv "$PYTHON_DIR"
+  fi
+'''
 
 [profile]
+bash = '''
+  echo "Activating python virtual environment" >&2
+  source "$PYTHON_DIR/bin/activate"
+'''
+zsh = '''
+  echo "Activating python virtual environment" >&2
+  source "$PYTHON_DIR/bin/activate"
+'''
 
 [services]
 
