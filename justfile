@@ -1,8 +1,14 @@
 # Run all recipes inside the Flox environment
 set shell := ["flox", "activate", "--", "sh", "-cu"]
 
+# Name of the theme, taken from package.json
+theme_name := "ghost-starter-theme"
+
 # Location of the theme in the local Ghost instance
-theme_dir := "ghost/content/themes/ghost-starter-theme"
+theme_dir := "ghost/content/themes" / theme_name
+
+# Archive that pnpm zip produces, and that gscan checks
+theme_zip := theme_name + ".zip"
 
 [private]
 default:
@@ -56,8 +62,12 @@ lint-markdown:
 
 # Lint the Ghost theme using Ghost's gscan tool
 lint-theme:
+    # bestzip updates an existing archive rather than replacing it, so a
+    # stale zip keeps serving files that were deleted from the source and
+    # hides errors that a fresh checkout would catch.
+    rm -f {{ theme_zip }}
     pnpm zip
-    pnpm gscan {{ if env("GITHUB_ACTIONS", "") != "" { "--fatal --verbose" } else { "" } }} -z ghost-starter-theme.zip
+    pnpm gscan -z {{ theme_zip }}
 
 # Lint TOML files
 lint-toml:
