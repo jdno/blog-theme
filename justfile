@@ -2,7 +2,7 @@
 set shell := ["flox", "activate", "--", "sh", "-cu"]
 
 # Name of the theme, taken from package.json
-theme_name := "ghost-starter-theme"
+theme_name := "jdno-dev"
 
 # Location of the theme in the local Ghost instance
 theme_dir := "ghost/content/themes" / theme_name
