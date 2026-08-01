@@ -59,7 +59,11 @@ Chosen from three rendered directions in the "jdno.dev Theme" project on
 - **Display type:** Bricolage Grotesque (extra bold) for titles and headings —
   warm and literary with enough eccentricity to carry the playful edge. Syne
   was rejected as too compressed to read comfortably at title sizes; the cool
-  blue "Blueprint" direction did not resonate.
+  blue "Blueprint" direction did not resonate. The theme's faces are the
+  default, but Ghost's font settings can override them: the type tokens read
+  `--gh-font-heading` and `--gh-font-body` and fall back to the self-hosted
+  fonts, so the pickers in the admin do what they appear to do rather than
+  nothing at all.
 - **Playful details:** borrowed from the rejected "Daylight" exploration and
   recolored in ember — thick accent-colored link underlines, pill buttons and
   image frames with hard offset shadows, highlight marks, and uppercase kicker

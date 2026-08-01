@@ -63,7 +63,9 @@
 
     <footer class="gh-footer gh-canvas">
 
-        {{#if tags}}
+        {{! primary_tag rather than tags: a post whose only tags are internal
+            would otherwise render an empty, but still spaced, container }}
+        {{#if primary_tag}}
         <div class="gh-post-footer">
             {{#foreach tags}}
                 <a class="gh-pill" href="{{url}}">{{name}}</a>
