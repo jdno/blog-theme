@@ -72,16 +72,12 @@ html,
 /* Header
 /* ---------------------------------------------------------- */
 
+/* Only applies when no logo is set and the site title stands in for it */
 .gh-head-logo {
     font-family: var(--font-display);
     font-weight: var(--font-heavy);
     font-size: 2rem;
     letter-spacing: -0.02em;
-}
-
-.gh-head-menu .nav a {
-    font-weight: var(--font-bold);
-    font-size: 1.4rem;
 }
 
 .gh-theme-toggle {
@@ -127,22 +123,19 @@ html,
     }
 }
 
-/* Profile band
+/* Hero
 /* ---------------------------------------------------------- */
 
-.gh-profile {
-    display: flex;
-    align-items: center;
-    gap: 2.4rem;
+.gh-hero {
     max-width: 720px;
     margin: 0 auto;
-    padding: 8vmin 0 0;
+    padding: 10vmin 0 8vmin;
 }
 
-.gh-profile-avatar {
-    flex-shrink: 0;
-    width: 7.2rem;
-    height: 7.2rem;
+.gh-hero-portrait {
+    width: 8.8rem;
+    height: 8.8rem;
+    margin-bottom: 3.2rem;
     border: 2px solid var(--color-ink);
     border-radius: 50%;
     object-fit: cover;
@@ -150,42 +143,46 @@ html,
     background: var(--color-surface);
 }
 
-.gh-profile-monogram {
-    flex-shrink: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 7.2rem;
-    height: 7.2rem;
-    border: 2px solid var(--color-ink);
-    border-radius: 50%;
-    box-shadow: var(--shadow-offset);
-    background: var(--color-accent);
-    color: var(--color-paper);
-    font-family: var(--font-display);
-    font-weight: var(--font-heavy);
-    font-size: 2.4rem;
+.gh-hero-statement {
+    max-width: 18ch;
+    font-size: clamp(3.4rem, 6.5vw, 5.6rem);
+    line-height: 1.02em;
+    letter-spacing: -0.03em;
 }
 
-.gh-profile-bio {
-    margin: 0;
-    font-size: 1.7rem;
-    line-height: 1.5em;
+.gh-hero-bio {
+    max-width: 54ch;
+    margin-top: 3rem;
+    font-size: 1.8rem;
+    line-height: 1.55em;
+    color: var(--color-muted);
 }
 
-.gh-profile-links {
+.gh-hero-bio + .gh-hero-bio {
+    margin-top: 1.8rem;
+}
+
+.gh-hero-links {
     display: flex;
     flex-wrap: wrap;
     gap: 0.8rem;
-    margin-top: 1.2rem;
+    margin-top: 3rem;
 }
 
-@media (max-width: 600px) {
-    .gh-profile {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.6rem;
-    }
+/* Feed heading
+/* ---------------------------------------------------------- */
+
+.gh-feed-heading {
+    max-width: 720px;
+    margin: 0 auto;
+    padding-bottom: 1.6rem;
+    border-bottom: 2px solid var(--color-ink);
+    color: var(--color-muted);
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-weight: var(--font-bold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
 }
 
 /* Post feed
@@ -194,7 +191,7 @@ html,
 .gh-postfeed {
     max-width: 720px;
     margin: 0 auto;
-    padding: 4vmin 0 8vmin;
+    padding: 0 0 8vmin;
 }
 
 .gh-feed-row {

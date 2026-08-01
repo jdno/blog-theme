@@ -3,35 +3,47 @@
     <div class="gh-container">
 
         {{#is "home"}}
-            <section class="gh-profile">
-                {{#if @site.icon}}
+            <section class="gh-hero">
+                {{#if @site.logo}}
                     <img
-                        class="gh-profile-avatar"
-                        src="{{@site.icon}}"
+                        class="gh-hero-portrait"
+                        srcset="{{img_url @site.logo size="xs"}} 100w,
+                                {{img_url @site.logo size="s"}} 300w"
+                        sizes="88px"
+                        src="{{img_url @site.logo size="s"}}"
                         alt="{{@site.title}}"
+                        width="88"
+                        height="88"
                     />
-                {{else}}
-                    <span class="gh-profile-monogram" aria-hidden="true">JD</span>
                 {{/if}}
-                <div class="gh-profile-info">
-                    <p class="gh-profile-bio">{{@site.description}}</p>
-                    <div class="gh-profile-links">
-                        {{#if @custom.github_url}}
-                            <a class="gh-pill" href="{{@custom.github_url}}" rel="me">GitHub</a>
-                        {{/if}}
-                        {{#if @custom.mastodon_url}}
-                            <a class="gh-pill" href="{{@custom.mastodon_url}}" rel="me">Mastodon</a>
-                        {{/if}}
-                        {{#if @custom.bluesky_url}}
-                            <a class="gh-pill" href="{{@custom.bluesky_url}}" rel="me">Bluesky</a>
-                        {{/if}}
-                        {{#if @custom.linkedin_url}}
-                            <a class="gh-pill" href="{{@custom.linkedin_url}}" rel="me">LinkedIn</a>
-                        {{/if}}
-                        <a class="gh-pill" href="{{@site.url}}/rss/">RSS</a>
-                    </div>
+
+                <h1 class="gh-hero-statement">
+                    Figuring out how we can build better products
+                </h1>
+
+                <p class="gh-hero-bio">
+                    Throughout my career, I’ve been fascinated by the question
+                    of how we can build better products for our users. I
+                    believe that starts with the development process we follow
+                    ourselves.
+                </p>
+
+                <p class="gh-hero-bio">
+                    AI is fundamentally changing software development, and I am
+                    exploring what that means for the products we build.
+                </p>
+
+                {{! Links come from the site navigation so they are managed in
+                    one place rather than duplicated as theme settings. }}
+                <div class="gh-hero-links">
+                    {{! this.url avoids Handlebars resolving Ghost's url helper }}
+                    {{#foreach @site.navigation}}
+                        <a class="gh-pill" href="{{this.url}}" rel="me">{{this.label}}</a>
+                    {{/foreach}}
                 </div>
             </section>
+
+            <h2 class="gh-feed-heading">Writing</h2>
         {{/is}}
 
         <div class="gh-postfeed">
