@@ -67,15 +67,6 @@
         "card_assets": true,
         "posts_per_page": 15,
         "custom": {
-            "typography": {
-                "type": "select",
-                "options": [
-                    "Sans",
-                    "Serif"
-                ],
-                "default": "Sans",
-                "description": "Body font for post content"
-            },
             "github_url": {
                 "type": "text",
                 "default": "https://github.com/jdno"

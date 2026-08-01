@@ -24,13 +24,10 @@
     --font-body:
         "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
         "Helvetica Neue", sans-serif;
-    --font-serif-body: "Literata", Georgia, Times, serif;
-    --font-prose: var(--font-body);
     --font-mono: Menlo, Consolas, Monaco, monospace;
 
     /* Compatibility aliases for base components */
     --font-sans-serif: var(--font-body);
-    --font-serif: var(--font-serif-body);
     --font-light: 300;
     --font-normal: 400;
     --font-bold: 600;
@@ -74,10 +71,4 @@
         --color-surface: #2a2620;
         --color-accent: #e86a3c;
     }
-}
-
-/* Prose font: sans by default, serif via the typography theme setting */
-
-.has-serif-body {
-    --font-prose: var(--font-serif-body);
 }

@@ -62,7 +62,7 @@
 .gh-canvas > ul,
 .gh-canvas > dl,
 .gh-canvas > p {
-    font-family: var(--font-prose);
+    font-family: var(--font-body);
     font-weight: 400;
     font-size: 1.9rem;
     line-height: 1.65em;
