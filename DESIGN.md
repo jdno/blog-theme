@@ -67,10 +67,10 @@ one-or-two-line excerpt, and meta (date, reading time). No feed thumbnails.
 ### Post Page
 
 A centered reading column (around 680–720px). Feature images are contained
-within the column and optional, never dominant heroes. The body font is
-swappable between a sans and a text serif (Ghost's `has-serif-body` pattern):
-both get built, and the choice is made by reading real essays in each. This is
-the one Beaumont question the brief leaves to empiricism.
+within the column and optional, never dominant heroes. Prose is set in the
+body sans. Both a sans and a text serif were prototyped and read side by side
+with real essays; the sans won, so the serif was removed rather than kept as
+a setting. This was the one Beaumont question the brief left to empiricism.
 
 ### Color and Dark Mode
 
@@ -100,8 +100,6 @@ are easy to add later if the writing or the readership starts demanding them.
 
 ## Open Questions for the Design Phase
 
-- The body sans and the prototype serif (mockups use Figtree and Literata as
-  working candidates; confirm by reading real essays in local Ghost).
 - How far the hard-shadow vocabulary extends: buttons and image frames only,
   or also cards and other surfaces. Restraint is the default.
 - How the profile band and the dark-mode toggle share the header without
