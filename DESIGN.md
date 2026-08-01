@@ -8,12 +8,16 @@ site and four inspiration themes ([Beaumont][beaumont], [Oaknut][oaknut],
 
 ## Purpose
 
-The site is a journal with a quiet profile. Writing comes first: the design
-optimizes the reading experience for essays, and calls to action (subscribe,
-sign in) stay soft. But visitors should be able to figure out who the author
-is without leaving the site — a compact profile presence and a proper about
-page are part of the design, without turning the site into a portfolio or a
-sales page.
+The site is a journal that introduces its author properly. Writing is still
+the main event — the design optimizes the reading experience for essays, and
+calls to action (subscribe, sign in) stay soft — but the front page opens by
+saying who the author is and what he is working out, rather than dropping
+straight into a list of posts.
+
+That introduction is aimed at peers: engineers who might read the writing,
+argue with it, or work with him. It is not a résumé and not a sales page. The
+distinction matters for tone — the front page leads with a question the author
+is chasing, not with credentials.
 
 The content it serves: essay-leaning posts of roughly 3–7 minutes, published
 about monthly, by a single author. Topics currently center on AI-era software
@@ -63,10 +67,32 @@ Chosen from three rendered directions in the "jdno.dev Theme" project on
 
 ### Homepage
 
-A small profile band above the feed: avatar, two or three lines of bio, and
-social links — the "quiet profile" made visible. Below it, the post feed as a
-single-column list with hairline separators. Each row shows the title, a
-one-or-two-line excerpt, and meta (date, reading time). No feed thumbnails.
+The top of the front page is a statement hero: the publication logo at
+signature size, then the statement set large in the display face, then two
+short paragraphs, then the links. The statement is a claim in the author's
+voice rather than a job title, and it carries the page — the logo stays small
+so the typography still leads.
+
+A "Writing" label divides the introduction from the feed, which follows
+immediately with nothing in between. The feed is a single-column list with
+hairline separators; each row shows the title, a one-or-two-line excerpt, and
+meta (date, reading time). No feed thumbnails.
+
+The copy lives in the template rather than in theme settings. There is one
+author and one site, so configurability buys nothing, and writing the words
+in markup keeps them under review like the rest of the theme. The links come
+from the site navigation, which is the one place they are configured.
+
+### Header
+
+The front page carries no header identity: its hero already introduces the
+site, so repeating the logo directly above it would say the same thing twice.
+Every other page gets a title bar instead — a home link on the left, the logo
+centered, and the actions (search, color scheme, subscribe) on the right.
+
+There is no navigation menu in the header. The site's links live in the hero
+as pills, and adding them to the header as well was the duplication that
+prompted this arrangement.
 
 ### Post Page
 

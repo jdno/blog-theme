@@ -40,28 +40,30 @@
     <body class="{{body_class}}">
         <div class="gh-viewport">
 
-            <header id="gh-head" class="gh-head gh-head-brandnavactions">
+            <header id="gh-head" class="gh-head">
                 <nav class="gh-head-inner gh-container">
 
-                    <div class="gh-head-brand">
-                        <a class="gh-head-logo" href="{{@site.url}}">
-                            {{#if @site.logo}}
-                                <img
-                                    src="{{@site.logo}}"
-                                    alt="{{@site.title}}"
-                                />
-                            {{else}}
-                                {{@site.title}}
-                            {{/if}}
-                        </a>
-                        <a class="gh-burger" role="button" aria-label="menu">
-                            <div class="gh-burger-box">
-                                <div class="gh-burger-inner"></div>
-                            </div>
-                        </a>
+                    {{! The front page introduces the site in its hero, so the
+                        header only identifies the site and links home
+                        everywhere else. }}
+                    <div class="gh-head-start">
+                        {{^is "home"}}
+                            <a class="gh-head-home" href="{{@site.url}}">Home</a>
+                        {{/is}}
                     </div>
-                    <div class="gh-head-menu">
-                        {{navigation}}
+                    <div class="gh-head-brand">
+                        {{^is "home"}}
+                            <a class="gh-head-logo" href="{{@site.url}}">
+                                {{#if @site.logo}}
+                                    <img
+                                        src="{{@site.logo}}"
+                                        alt="{{@site.title}}"
+                                    />
+                                {{else}}
+                                    {{@site.title}}
+                                {{/if}}
+                            </a>
+                        {{/is}}
                     </div>
                     <div class="gh-head-actions">
                         <div class="gh-head-actions-list">
@@ -105,6 +107,8 @@
                     </div>
                     <div class="gh-foot-meta">
                         &copy; {{date format="YYYY"}} {{@site.title}}
+                        <span class="gh-foot-sep">&middot;</span>
+                        <a href="{{@site.url}}/rss/">RSS</a>
                     </div>
                 </div>
             </footer>
