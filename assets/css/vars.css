@@ -51,7 +51,14 @@
 }
 
 /* Palette: dark (charcoal). Applied when the toggle chose dark, or when
-   the system prefers dark and the toggle has not chosen light. */
+   the system prefers dark and the toggle has not chosen light.
+
+   The accent is derived from the one configured in Ghost rather than fixed,
+   because a color that carries a paper background is too dark to read on
+   charcoal. Adding lightness while keeping hue and chroma restores roughly
+   the contrast the accent has in light mode. The static value above it is
+   the fallback for browsers without relative color syntax; it matches what
+   the derivation produces for the default ember. */
 
 :root[data-theme="dark"] {
     --color-paper: #211e19;
@@ -60,6 +67,9 @@
     --color-hairline: #3a352c;
     --color-surface: #2a2620;
     --color-accent: #e86a3c;
+    --color-accent: oklch(
+        from var(--ghost-accent-color, #c9451b) calc(l + 0.1) c h
+    );
 }
 
 @media (prefers-color-scheme: dark) {
@@ -70,5 +80,8 @@
         --color-hairline: #3a352c;
         --color-surface: #2a2620;
         --color-accent: #e86a3c;
+        --color-accent: oklch(
+            from var(--ghost-accent-color, #c9451b) calc(l + 0.1) c h
+        );
     }
 }
