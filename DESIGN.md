@@ -45,9 +45,13 @@ Chosen from three rendered directions in the "jdno.dev Theme" project on
 [Claude Design][claude-design], which serves as the visual spec:
 
 - **Palette:** warm literary paper. Light mode on `#F7F4EF` paper with
-  `#211D18` ink and a `#C9451B` ember accent; dark mode on `#211E19` warm
-  charcoal with `#EAE5DC` text and `#E86A3C` ember. Exact values may still be
-  tuned during the build.
+  `#211D18` ink; dark mode on `#211E19` warm charcoal with `#EAE5DC` text.
+  The accent is ember, `#C9451B`, but it is configuration rather than a fixed
+  value: the theme follows the accent color set in Ghost and falls back to
+  ember. Dark mode derives its accent from the same setting by adding
+  lightness, because a color chosen to sit on paper is too dark to read on
+  charcoal. Ghost's admin cannot check contrast, so the accent is worth
+  choosing carefully — ember clears 4.4:1 on paper, but a light one will not.
 - **Display type:** Bricolage Grotesque (extra bold) for titles and headings —
   warm and literary with enough eccentricity to carry the playful edge. Syne
   was rejected as too compressed to read comfortably at title sizes; the cool
