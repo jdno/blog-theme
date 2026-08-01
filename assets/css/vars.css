@@ -18,12 +18,26 @@
     --color-border: var(--color-hairline);
     --color-bg: var(--color-surface);
 
-    /* Fonts */
-    --font-display:
-        "Bricolage Grotesque", "Avenir Next", "Helvetica Neue", sans-serif;
-    --font-body:
-        "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-        "Helvetica Neue", sans-serif;
+    /* Fonts. Ghost injects --gh-font-heading and --gh-font-body when a font
+       is chosen in the admin, so the pickers there work; the theme's own
+       faces are the fallback and the default. */
+    --font-display: var(
+        --gh-font-heading,
+        "Bricolage Grotesque",
+        "Avenir Next",
+        "Helvetica Neue",
+        sans-serif
+    );
+    --font-body: var(
+        --gh-font-body,
+        "Figtree",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Roboto",
+        "Helvetica Neue",
+        sans-serif
+    );
     --font-mono: Menlo, Consolas, Monaco, monospace;
 
     /* Compatibility aliases for base components */
