@@ -43,11 +43,13 @@
             <header id="gh-head" class="gh-head">
                 <nav class="gh-head-inner gh-container">
 
-                    {{! The front page introduces the site in its hero, so the
-                        header only identifies the site and links home
-                        everywhere else. }}
+                    {{! The front page names its author here, since the hero
+                        below shows a face and a claim but not a name. Every
+                        other page needs a way back instead. }}
                     <div class="gh-head-start">
-                        {{^is "home"}}
+                        {{#is "home"}}
+                            <span class="gh-head-name">{{@site.title}}</span>
+                        {{else}}
                             <a class="gh-head-home" href="{{@site.url}}">Home</a>
                         {{/is}}
                     </div>

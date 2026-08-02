@@ -13,11 +13,15 @@
     text-decoration: none;
 }
 
-.gh-head-inner {
+/* Overrides the wider .gh-container so the header sits on the same column as
+   the content below it — the name lines up with the hero, the actions with
+   the feed's right edge. */
+.gh-head .gh-head-inner {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     grid-gap: 2rem;
+    max-width: 720px;
 }
 
 /* Home link
@@ -27,6 +31,13 @@
     display: flex;
     align-items: center;
     justify-self: start;
+}
+
+.gh-head-name {
+    font-family: var(--font-display);
+    font-weight: var(--font-heavy);
+    font-size: 1.7rem;
+    letter-spacing: -0.02em;
 }
 
 .gh-head-home {
