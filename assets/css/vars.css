@@ -54,6 +54,12 @@
     --small: 740px;
     --xsmall: 480px;
 
+    /* Vertical rhythm inside post content. These are relative to the text
+       rather than to the viewport: spacing should hold its relationship to
+       the type, not grow on a wide window and collapse on a phone. */
+    --content-gap: 2.8rem;
+    --content-gap-card: 3.6rem;
+
     /* Sizes */
     --height: 4rem;
     --margin: 2rem;

@@ -41,11 +41,11 @@
 /* ---------------------------------------------------------- */
 
 .gh-content > * + * {
-    margin-top: 4vmin;
+    margin-top: var(--content-gap);
 }
 
 .gh-content [id]:not(:first-child) {
-    margin: 1.5em 0 0;
+    margin: 1.2em 0 0;
 }
 
 .gh-content > [id] + * {
@@ -54,7 +54,7 @@
 
 .gh-content [id] + .kg-card,
 .gh-content blockquote + .kg-card {
-    margin-top: 6vmin;
+    margin-top: var(--content-gap-card);
 }
 
 .gh-canvas > blockquote,
@@ -75,11 +75,11 @@
 }
 
 .gh-content hr {
-    margin-top: 6vmin;
+    margin-top: var(--content-gap-card);
 }
 
 .gh-content hr + * {
-    margin-top: 6vmin !important;
+    margin-top: var(--content-gap-card) !important;
 }
 
 .gh-content blockquote {
@@ -115,11 +115,15 @@
 /* ---------------------------------------------------------- */
 
 .gh-content :not(.kg-card):not([id]) + .kg-card {
-    margin-top: 6vmin;
+    margin-top: var(--content-gap-card);
 }
 
 .gh-content .kg-card + :not(.kg-card) {
-    margin-top: 6vmin;
+    margin-top: var(--content-gap-card);
+}
+
+.gh-content .kg-card + .kg-card {
+    margin-top: var(--content-gap);
 }
 
 figcaption {
